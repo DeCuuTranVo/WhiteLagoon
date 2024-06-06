@@ -14,6 +14,8 @@ namespace WhiteLagoon.Application.Common.Interfaces
 
         IBookingRepository Booking { get; }
 
+        IApplicationUserRepository User { get; }
+
         IAmenityRepository Amenity { get; }
 
         void Save();

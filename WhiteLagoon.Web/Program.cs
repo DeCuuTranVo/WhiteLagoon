@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
+using System.Globalization;
 using WhiteLagoon.Application.Common.Interfaces;
 using WhiteLagoon.Domain.Entities;
 using WhiteLagoon.Infrastructure.Data;
@@ -31,6 +33,32 @@ builder.Services.Configure<IdentityOptions>(option =>
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
+
+StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
+//Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+//Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
+
+//Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-GB");
+//Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-GB");
+
+
+//Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+//Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+
+CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
+CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
+
+//CultureInfo.DefaultThreadCurrentCulture = CultureInfo.GetCultureInfo("vi-VN");
+//CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.GetCultureInfo("vi-VN");
+
+//CultureInfo.DefaultThreadCurrentCulture = CultureInfo.GetCultureInfo("en-US");
+//CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+
+//CultureInfo.DefaultThreadCurrentCulture = CultureInfo.GetCultureInfo("en-GB");
+//CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.GetCultureInfo("en-GB");
+
+//CultureInfo.GetCultureInfo("en-US");
+//yyyy - MM - dd
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

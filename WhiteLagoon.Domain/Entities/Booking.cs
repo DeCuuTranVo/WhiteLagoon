@@ -36,9 +36,16 @@ namespace WhiteLagoon.Domain.Entities
 
         [Required]
         public DateTime BookingDate { get; set; }
+
         [Required]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public DateOnly CheckInDate { get; set; }
+
         [Required]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
+
         public DateOnly CheckOutDate { get; set; }
 
         public bool IsPaymentSuccessful { get; set; } = false;
