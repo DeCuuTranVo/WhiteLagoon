@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="~/css/spinner.css" />
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="~/css/apexcharts.css" />
 </head>
 <body>
     <header>
@@ -40,32 +41,37 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Amenity" asp-action="Index">Amenity</a>
-                        </li> *@
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Content Management
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li>
-                                    @* <a class="dropdown-item" href="#">Action</a> *@
-                                    <a class="dropdown-item" asp-area="" asp-controller="Villa" asp-action="Index">Villa</a>
-                                </li>
-                                <li>
-                                    @* <a class="dropdown-item" href="#">Another action</a> *@
-                                    <a class="dropdown-item" asp-area="" asp-controller="VillaNumber" asp-action="Index">Villa Number</a>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li>
-                                    @* <a class="dropdown-item" href="#">Something else here</a> *@
-                                    <a class="dropdown-item" asp-area="" asp-controller="Amenity" asp-action="Index">Amenity</a>
-                                </li>
-                                <li>
-                                    @* <a class="dropdown-item" asp-controller="Booking" asp-action="Index">Booking</a> *@
-                                    <a class="dropdown-item" asp-controller="Booking" asp-action="Index" asp-route-status="@SD.StatusApproved">Booking</a>
-                                </li>
-                            </ul>
-                        </li>                        
+                        </li> *@  
+                        
+                        @if (User.IsInRole(SD.Role_Admin))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Content Management
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Villa" asp-action="Index">Villa</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="VillaNumber" asp-action="Index">VillaNumber</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Amenity" asp-action="Index">Amenity</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Booking" asp-action="Index" asp-route-status="@SD.StatusApproved">Booking</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Booking" asp-action="Index">Manage Bookings</a>
+                            </li>
+                        }
                     </ul>
 
                     <partial name="_LoginPartial" />
@@ -97,6 +103,7 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" asp-append-version="true"></script>
     @* <script src="~/js/jquery.unobtrusive-ajax.min.js"></script> *@
+    <script src="~/js/apexcharts.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
