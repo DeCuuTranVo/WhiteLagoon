@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Stripe;
+using Syncfusion.Licensing;
 using System.Globalization;
 using WhiteLagoon.Application.Common.Interfaces;
+using WhiteLagoon.Application.Services.Implementation;
+using WhiteLagoon.Application.Services.Interface;
 using WhiteLagoon.Domain.Entities;
 using WhiteLagoon.Infrastructure.Data;
 using WhiteLagoon.Infrastructure.Repository;
@@ -31,34 +34,16 @@ builder.Services.Configure<IdentityOptions>(option =>
 
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IDashboardService, DashboardService>();
+builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 
 var app = builder.Build();
 
 StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
-//Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
-//Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
-
-//Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-GB");
-//Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-GB");
-
-
-//Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-//Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+SyncfusionLicenseProvider.RegisterLicense(builder.Configuration.GetSection("Syncfusion:Licensekey").Get<string>());
 
 CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
 CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.InvariantCulture;
-
-//CultureInfo.DefaultThreadCurrentCulture = CultureInfo.GetCultureInfo("vi-VN");
-//CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.GetCultureInfo("vi-VN");
-
-//CultureInfo.DefaultThreadCurrentCulture = CultureInfo.GetCultureInfo("en-US");
-//CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.GetCultureInfo("en-US");
-
-//CultureInfo.DefaultThreadCurrentCulture = CultureInfo.GetCultureInfo("en-GB");
-//CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.GetCultureInfo("en-GB");
-
-//CultureInfo.GetCultureInfo("en-US");
-//yyyy - MM - dd
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -75,8 +60,18 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+SeedDatabase();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+void SeedDatabase()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+        dbInitializer.Initialize();
+    }
+}
