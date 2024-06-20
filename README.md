@@ -35,17 +35,74 @@ This app is a web app serving the purpose of booking resort rooms for vacations.
     <b>WhiteLagoon </b>
     ├── <b>WhiteLagoon.Application </b>
     │   ├── <b>Common </b>                            
-    │   │   ├── <b>DTO </b>                            
-    │   │   ├── <b>Interfaces</b>                           
-    │   │   ├── <b>Utility</b>                            
-    │   ├── <b>Services </b>                          
+    │   │   ├── <b>DTO </b>         
+    │   │   │   ├── LineChartDto.cs   
+    │   │   │   ├── PieChartDto.cs
+    │   │   │   └── RadialBarChartDto.cs  
+    │   │   ├── <b>Interfaces</b>     
+    │   │   │   ├── IAmenityRepository.cs
+    │   │   │   ├── IApplicationUserRepository.cs
+    │   │   │   ├── IBookingRepository.cs
+    │   │   │   ├── IDbInitializer.cs
+    │   │   │   ├── IRepository.cs
+    │   │   │   ├── IUnitOfWork.cs
+    │   │   │   ├── IVillaNumberRepository.cs
+    │   │   │   └── IVillaRepository.cs
+    │   │   └── <b>Utility</b>     
+    │   │       └── SD.cs
+    │   ├── <b>Services </b>  
+    │   │   ├── <b>Implementation </b> 
+    │   │   │   ├── AmenityService.cs
+    │   │   │   ├── BookingService.cs
+    │   │   │   ├── DashboardService.cs
+    │   │   │   ├── EmailService.cs
+    │   │   │   ├── PaymentService.cs
+    │   │   │   ├── VillaNumberService.cs
+    │   │   │   └── VillaService.cs
+    │   │   └── <b>Interface </b> 
+    │   │       ├── IAmenityService.cs
+    │   │       ├── IBookingService.cs
+    │   │       ├── IDashboardService.cs
+    │   │       ├── IEmailService.cs
+    │   │       ├── IPaymentService.cs
+    │   │       ├── IVillaNumberService.cs
+    │   │       └── IVillaService.cs
     │   └── WhiteLagoon.Application.csproj
     ├── <b>WhiteLagoon.Domain </b>
-    │   ├──
+    │   ├── <b>Entities </b>         
+    │   │   ├── Amenity.cs  
+    │   │   ├── ApplicationUser.cs
+    │   │   ├── Booking.cs
+    │   │   ├── Villa.cs
+    │   │   └── VillaNumber.cs 
+    │   └── WhiteLagoon.Domain.csproj
     ├── <b>WhiteLagoon.Infrastructure </b>
-    │   ├──
+    │   ├── <b>Data </b>
+    │   │   ├── ApplicationDbContext.cs
+    │   │   └── DbInitializer.cs
+    │   ├── <b>Migrations </b>
+    │   │   └── ...
+    │   ├── <b>Repository </b>
+    │   │   ├── AmenityRepository.cs
+    │   │   ├── ApplicationUserRepository.cs
+    │   │   ├── BookingRepository.cs
+    │   │   ├── Repository.cs
+    │   │   ├── UnitOfWork.cs
+    │   │   ├── VillaNumberRepository.cs
+    │   │   └── VillaRepository.cs
+    │   └── WhiteLagoon.Infrastructure.csproj    
     ├── <b>WhiteLagoon.Web </b>
-    │   ├──
+    │   ├── <b>Controllers </b>
+    │   ├── <b>Models </b>
+    │   ├── <b>Properties </b>
+    │   ├── <b>ViewModels </b>
+    │   ├── <b>Views </b>
+    │   ├── <b>wwwroot </b>
+    │   ├── Program.cs
+    │   ├── WhiteLagoon.Web.csproj
+    │   ├── appsettings.Development.json
+    │   ├── appsettings.json
+    │   └── libman.json
     ├── README.md
     └── WhiteLagoon.sln
 </pre>
