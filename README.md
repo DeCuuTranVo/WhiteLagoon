@@ -156,11 +156,35 @@ This app is a web app serving the purpose of booking resort rooms for vacations.
     │   │   └── _ViewStart.cshtml
     │   ├── <b>wwwroot </b>
     │   │   ├── <b>css </b> 
+    |   │   │   ├── apexcharts.css
+    |   │   │   ├── site.css
+    |   │   │   └── spinner.css
     │   │   ├── <b>exports </b> 
+    |   │   │   ├── BookingDetails.docx
+    |   │   │   └── ExportVillaDetails.pptx
     │   │   ├── <b>images </b> 
+    |   │   │   ├── <b>Room Images </b>
+    |   │   │   ├── <b>VillaImage </b>
+    |   │   │   └── ...
     │   │   ├── <b>jquery-ajax-unobtrusive </b> 
     │   │   ├── <b>js </b> 
+    |   │   │   ├── <b>dashboard </b> 
+    |   |   │   │   ├── getCustomerAndBookingLineChart.js
+    |   |   │   │   ├── getCustomerBookingPieChart.js
+    |   |   │   │   ├── getTotalBookingsRadial.js
+    |   |   │   │   ├── getTotalRevenueRadial.js
+    |   |   │   │   ├── getTotalUserRadial.js
+    |   |   │   │   └── radialChart.js
+    |   │   │   ├── apexcharts.js
+    |   │   │   ├── booking.js
+    |   │   │   ├── jquery.unobtrusive-ajax.js
+    |   │   │   ├── jquery.unobtrusive-ajax.min.js
+    |   │   │   └── site.js
     │   │   ├── <b>lib </b> 
+    |   │   │   ├── <b>bootstrap </b> 
+    |   │   │   ├── <b>jquery-validation-unobtrusive </b> 
+    |   │   │   ├── <b>jquery-validation </b> 
+    |   │   │   └── <b>jquery </b> 
     │   │   └── favicon.ico
     │   ├── Program.cs
     │   ├── WhiteLagoon.Web.csproj
