@@ -93,11 +93,75 @@ This app is a web app serving the purpose of booking resort rooms for vacations.
     │   └── WhiteLagoon.Infrastructure.csproj    
     ├── <b>WhiteLagoon.Web </b>
     │   ├── <b>Controllers </b>
+    │   │   ├── AccountController.cs
+    │   │   ├── AmenityController.cs
+    │   │   ├── BookingController.cs
+    │   │   ├── DashboardController.cs
+    │   │   ├── HomeController.cs
+    │   │   ├── VillaController.cs
+    │   │   └── VillaNumberController.cs
     │   ├── <b>Models </b>
+    │   │   └── ErrorViewModel.cs
     │   ├── <b>Properties </b>
+    │   │   └── launchSettings.json
     │   ├── <b>ViewModels </b>
+    │   │   ├── AmenityVM.cs
+    │   │   ├── HomeVM.cs
+    │   │   ├── LoginVM.cs
+    │   │   ├── RegisterVM.cs
+    │   │   └── VillaNumberVM.cs
     │   ├── <b>Views </b>
+    │   │   ├── <b>Account </b> 
+    |   │   │   ├── AccessDenied.cshtml
+    |   │   │   ├── Login.cshtml
+    |   │   │   └── Register.cshtml
+    │   │   ├── <b>Amenity </b> 
+    |   │   │   ├── Create.cshtml
+    |   │   │   ├── Delete.cshtml
+    |   │   │   ├── Index.cshtml
+    |   │   │   └── Update.cshtml
+    │   │   ├── <b>Booking </b> 
+    |   │   │   ├── BookingConfirmation.cshtml
+    |   │   │   ├── BookingDetails.cshtml
+    |   │   │   ├── FinalizeBooking.cshtml
+    |   │   │   └── Index.cshtml
+    │   │   ├── <b>Dashboard </b> 
+    |   │   │   └── Index.cshtml
+    │   │   ├── <b>Home </b> 
+    |   │   │   ├── Index.cshtml
+    |   │   │   └── Privacy.cshtml
+    │   │   ├── <b>Shared </b> 
+    |   │   │   ├── Error.cshtml
+    |   │   │   ├── _Layout.cshtml
+    |   │   │   ├── _Layout.cshtml.css
+    |   │   │   ├── _LayoutAdmin.cshtml
+    |   │   │   ├── _LayoutAdmin.cshtml.css
+    |   │   │   ├── _LoginPartial.cshtml
+    |   │   │   ├── _LoginPartialAdmin.cshtml
+    |   │   │   ├── _Notification.cshtml
+    |   │   │   ├── _ValidationScriptsPartial.cshtml
+    |   │   │   ├── _VillaDetail.cshtml
+    |   │   │   └── _VillaList.cshtml
+    │   │   ├── <b>Villa </b> 
+    |   │   │   ├── Create.cshtml
+    |   │   │   ├── Delete.cshtml
+    |   │   │   ├── Index.cshtml
+    |   │   │   └── Update.cshtml
+    │   │   ├── <b>VillaNumber </b> 
+    |   │   │   ├── Create.cshtml
+    |   │   │   ├── Delete.cshtml
+    |   │   │   ├── Index.cshtml
+    |   │   │   └── Update.cshtml
+    │   │   ├── _ViewImports.cshtml
+    │   │   └── _ViewStart.cshtml
     │   ├── <b>wwwroot </b>
+    │   │   ├── <b>css </b> 
+    │   │   ├── <b>exports </b> 
+    │   │   ├── <b>images </b> 
+    │   │   ├── <b>jquery-ajax-unobtrusive </b> 
+    │   │   ├── <b>js </b> 
+    │   │   ├── <b>lib </b> 
+    │   │   └── favicon.ico
     │   ├── Program.cs
     │   ├── WhiteLagoon.Web.csproj
     │   ├── appsettings.Development.json
@@ -107,4 +171,3 @@ This app is a web app serving the purpose of booking resort rooms for vacations.
     └── WhiteLagoon.sln
 </pre>
 
-<h2> 3. Usage <h2>
