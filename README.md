@@ -191,6 +191,8 @@ This app is a web app serving the purpose of booking resort rooms for vacations.
     │   ├── appsettings.Development.json
     │   ├── appsettings.json
     │   └── libman.json
+    ├── .gitattributes
+    ├── .gitignore
     ├── README.md
     └── WhiteLagoon.sln
 </pre>
